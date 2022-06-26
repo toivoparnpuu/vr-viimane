@@ -16,7 +16,7 @@
 <body>
 	<header>
 		<img id="banner" src="../media/pic/rif21_banner.png" alt="RIF21 bänner">
-		<h1><?php echo $_SESSION["firstname"] ." " .$_SESSION["lastname"]; ?> arendab veebi</h1>
+		<h1><?php echo $_SESSION["firstname"];?> vaatab viite viimast uudist.</h1>
 		<details>
 			<summary>Selle lehe mõte</summary>
 			<p>See leht on loodud õppetöö raames ja ei sisalda tõsiseltvõetavat materjali!</p>

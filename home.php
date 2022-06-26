@@ -8,11 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?php echo $_SESSION["firstname"] ." " .$_SESSION["lastname"] ?> teeb veebi</title>
     <link rel="stylesheet" type="text/css" href="styles/general.css">
+
 </head>
 <body>
 	<header>
 		<img id="banner" src="../media/pic/rif21_banner.png" alt="RIF21 bänner">
-		<h1><?php echo $_SESSION["firstname"] ." " .$_SESSION["lastname"]; ?> arendab veebi</h1>
+		<h1>Tere <?php echo $_SESSION["firstname"]; ?>!</h1>
 		<details>
 			<summary>Selle lehe mõte</summary>
 			<p>See leht on loodud õppetöö raames ja ei sisalda tõsiseltvõetavat materjali!</p>
@@ -20,6 +21,7 @@
 		
         <hr>
 	</header>
+	
 	<?php
 		require_once "nav-user.php";
 	?>

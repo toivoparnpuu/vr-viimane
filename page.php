@@ -121,6 +121,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Uudiste ja piltide portaal</title>
     <link rel="stylesheet" type="text/css" href="styles/general.css">
+	<script src="javascript/nav.js" defer></script>
 </head>
 <body>
 	<header>
@@ -133,14 +134,10 @@
 		
         <hr>
 	</header>
-    
-    <nav>
-        <h2>Olulised lingid</h2>
-        <ul>
-            <li><a href="https://www.tlu.ee/haapsalu">Tallinna Ülikooli Haapsalu kolledž</a></li>
-            
-        </ul>
-    </nav>
+    <?php
+	require_once "nav-pub.php";
+	?>
+
 	
 	<hr>
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
@@ -156,24 +153,6 @@
 		<section>
 			<h2>Uusim avalik foto</h2>
 			<?php echo show_latest_photo(3); ?>
-		</section>
-		<section>
-			<h2>Natuke aja kohta</h2>
-			<p>Lehe avamise hetk: <?php echo $weekday_names_et[$weekday_now - 1] .", " .$full_time_now .", on " .$day_category. ", " .$part_of_day ."."; ?></p>
-			<?php echo $semester_meter; ?>
-			
-		</section>
-		<section>
-			<h2>Vaated Haapsalu kolledžile</h2>
-			<?php echo $photo_html; ?>
-			<figure>
-				<img src="../media/photos/HK_600x400/IMG_3238.JPG" alt="TLÜ Haapsalu kolledži hoone" class="photoframe">
-				<figcaption>Vaade TLÜ Haapsalu kolledži hoonele Lihula poolt</figcaption>
-			</figure>
-			<figure>
-				<img src="../media/photos/HK_600x400/IMG_4761.JPG" alt="TLÜ Haapslau kolledži arvutiklass 205" class="photoframe">
-				<figcaption>Vaade TLÜ Haapsalu kolledži arvutiklassi</figcaption>
-			</figure>
 		</section>
 <?php
 	require_once "pagefooter.php";

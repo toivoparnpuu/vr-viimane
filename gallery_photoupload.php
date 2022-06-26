@@ -51,50 +51,26 @@
 					$photo_error = "Valitud fail on liiga suur!";
 				}
 				
-				//võiks "puhastada" alt teksti
-				//võiks kontrollida privacy
-				
-				//kui kõik korras, siis laeme üles
+
 				if($photo_error == null){
 					
-					//võtame kasutusele klassi
 					$upload = new Photoupload($_FILES["photo_input"], $file_type);
 					
-					//loon uue failinime
 					$file_name = create_filename($photo_name_prefix, $file_type);
 					
-					//suuruse muutmine
-					//$my_temp_image = create_image($_FILES["photo_input"]["tmp_name"], $file_type);
-					//$my_normal_image = resize_photo($my_temp_image, $normal_photo_max_width, $normal_photo_max_height);
-					
-					//suuruse muutmine klassiga
 					$upload->resize_photo($normal_photo_max_width, $normal_photo_max_height);
 					
-					//lisan vesimärgi
 					$upload->add_watermark($watermark);
 					
-					//salvestame vähendatud pildifaili
-					//$photo_upload_notice = "Normaalsuuruses " .save_image($my_normal_image, $gallery_photo_normal_folder .$file_name, $file_type);
 					$photo_upload_notice = "Normaalsuuruses " .$upload->save_image($gallery_photo_normal_folder .$file_name);
 					
-					//thumbnail ka
-					//$my_thumb_image = resize_photo($my_temp_image, $thumbnail_width, $thumbnail_height);
-					//$photo_upload_notice .= " Pisipildi " .save_image($my_thumb_image, $gallery_photo_thumb_folder .$file_name, $file_type);
 					$upload->resize_photo($thumbnail_width, $thumbnail_height);
 					$photo_upload_notice .= " Pisipildi " .$upload->save_image($gallery_photo_thumb_folder .$file_name);
 					
-					//kopeerime originaali soovitud kohta
-					//move_uploaded_file($_FILES["photo_input"]["tmp_name"], $gallery_photo_orig_folder .$file_name);
 					$photo_upload_notice .= $upload->move_orig_photo($gallery_photo_orig_folder .$file_name);
 					
-					//talletame andmebaasi
 					$photo_upload_notice .= " " .store_photo_data($file_name, $_POST["alt_input"], $_POST["privacy_input"]);
-					
-					//tühjendame mälu
-					//imagedestroy($my_temp_image);
-					//imagedestroy($my_normal_image);
-					//imagedestroy($my_thumb_image);
-					//laseme klassi minna...
+
 					unset($upload);
 				}
 				
@@ -122,7 +98,7 @@
 <body>
 	<header>
 		<img id="banner" src="../media/pic/rif21_banner.png" alt="RIF21 bänner">
-		<h1><?php echo $_SESSION["firstname"] ." " .$_SESSION["lastname"]; ?> arendab veebi</h1>
+		<h1><?php echo $_SESSION["firstname"]; ?> lisab lehele pilte...</h1>
 		<details>
 			<summary>Selle lehe mõte</summary>
 			<p>See leht on loodud õppetöö raames ja ei sisalda tõsiseltvõetavat materjali!</p>
@@ -131,15 +107,9 @@
 		<hr>
 	</header>
 	
-	<nav>
-		<h2>Olulised lingid</h2>
-		<ul>
-			<li><a href="home.php">Avaleht</a></li>
-			<li><a href="?logout=1">Logi välja!</a></li>
-			<li><a href="https://www.tlu.ee/haapsalu">Tallinna Ülikooli Haapsalu kolledž</a></li>
-			
-		</ul>
-	</nav>
+	<?php
+		require_once "nav-user.php";
+	?>
 	<main>
 	<section>
 			
