@@ -32,5 +32,5 @@ Valmis lehekülg on vaadeltav: https://tigu.hk.tlu.ee/~toivo.parnpuu/viimane/pag
 - nav-user on sisselogitud kasutajale. 
 - lihtsustab navigatsiooni sisu muutmist. 
 
-# javascript
+## javascript
 - lisatud skript, mis markeerib navigatsiooniribal praeguse lehekülje. 
