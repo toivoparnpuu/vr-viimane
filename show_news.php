@@ -25,13 +25,9 @@
         <hr>
 	</header>
     
-    <nav>
-        <h2>Olulised lingid</h2>
-        <ul>
-			<li><a href="home.php">Avaleht</a></li>
-			<li><a href="?logout=1">Logi välja!</a></li>            
-        </ul>
-    </nav>
+	<?php
+	require_once "nav-user.php";
+	?>
         
 	<main>
 		<section>

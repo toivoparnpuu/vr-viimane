@@ -1,2 +1,2 @@
-## Viimane tÃ¶ÃAndrus Rinde aines
+## Andrus Rinde aines
 

@@ -13,7 +13,6 @@
 	
 	if(!empty($id)){
         require_once "../../cnf.php";
-        $database = "andrusrinde";
 		$conn = new mysqli($server_host, $server_user_name, $server_password, $database);
 		$conn->set_charset("utf8");
 		if(!empty($rating)){
